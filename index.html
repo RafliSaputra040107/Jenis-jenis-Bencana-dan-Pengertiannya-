@@ -1,0 +1,2564 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Geografi - Jenis-Jenis Bencana & Pengertiannya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library for Certificate Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        geoPrimary: '#0ea5e9',
+                        geoSecondary: '#0284c7',
+                        geoDark: '#0f172a',
+                        geoAccent: '#f59e0b',
+                        geoDanger: '#ef4444',
+                        geoSuccess: '#10b981'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+            background:
+                radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.12), transparent 34%),
+                linear-gradient(135deg, #020817 0%, #0f172a 35%, #111827 100%);
+            color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Landscape Aspect Container styling for Digital Whiteboard & Screens */
+        .slide-container {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-section {
+            --slide-a: rgba(14, 165, 233, 0.22);
+            --slide-b: rgba(168, 85, 247, 0.15);
+            --slide-c: rgba(251, 191, 36, 0.14);
+            position: relative;
+            isolation: isolate;
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.58), rgba(15, 23, 42, 0.58)),
+                radial-gradient(circle at 20% 18%, var(--slide-a), transparent 26%),
+                radial-gradient(circle at 78% 24%, var(--slide-b), transparent 30%),
+                radial-gradient(circle at 52% 80%, var(--slide-c), transparent 28%),
+                url('./asets/LB.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 1.5rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 30px 60px rgba(2, 6, 23, 0.28);
+            opacity: 0;
+            transform: translateY(22px) scale(0.985);
+            filter: blur(4px);
+            transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease, box-shadow 0.45s ease, background-image 0.5s ease;
+        }
+
+        .slide-theme-1 { --slide-a: rgba(14, 165, 233, 0.22); --slide-b: rgba(59, 130, 246, 0.16); --slide-c: rgba(253, 224, 71, 0.12); }
+        .slide-theme-2 { --slide-a: rgba(59, 130, 246, 0.18); --slide-b: rgba(45, 212, 191, 0.15); --slide-c: rgba(14, 165, 233, 0.14); }
+        .slide-theme-3 { --slide-a: rgba(34, 211, 238, 0.18); --slide-b: rgba(16, 185, 129, 0.16); --slide-c: rgba(59, 130, 246, 0.12); }
+        .slide-theme-4 { --slide-a: rgba(96, 165, 250, 0.18); --slide-b: rgba(167, 139, 250, 0.14); --slide-c: rgba(251, 191, 36, 0.14); }
+        .slide-theme-5 { --slide-a: rgba(16, 185, 129, 0.18); --slide-b: rgba(34, 197, 94, 0.15); --slide-c: rgba(59, 130, 246, 0.12); }
+        .slide-theme-6 { --slide-a: rgba(251, 191, 36, 0.2); --slide-b: rgba(14, 165, 233, 0.16); --slide-c: rgba(251, 146, 60, 0.12); }
+        .slide-theme-7 { --slide-a: rgba(56, 189, 248, 0.18); --slide-b: rgba(251, 191, 36, 0.15); --slide-c: rgba(167, 139, 250, 0.12); }
+
+        .slide-section.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            pointer-events: auto;
+        }
+
+        .slide-section.hidden {
+            display: none !important;
+            opacity: 0;
+            transform: translateY(18px) scale(0.98);
+            filter: blur(6px);
+            pointer-events: none;
+        }
+
+        .slide-section:hover {
+            transform: translateY(-2px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 38px 70px rgba(2, 6, 23, 0.34);
+        }
+
+        .glass-card {
+            position: relative;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.46)) !important;
+            backdrop-filter: blur(2px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 55px rgba(2, 6, 23, 0.3);
+            animation: cardIn 0.55s ease both;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(125, 211, 252, 0.08), rgba(168, 85, 247, 0.06), rgba(251, 191, 36, 0.08));
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 26px 60px rgba(14, 165, 233, 0.12), 0 0 0 1px rgba(125, 211, 252, 0.18);
+            border-color: rgba(125, 211, 252, 0.35);
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+
+        /* Printable layout for Slide 6 (Certificate) */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 100%;
+                min-height: 100%;
+                margin: 0;
+                background: white !important;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100vh;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 20px;
+                background: white !important;
+                color: black !important;
+                border: 12px double #0284c7 !important;
+                box-shadow: none !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            #printable-certificate * {
+                text-shadow: none !important;
+            }
+
+            #printable-certificate p,
+            #printable-certificate span,
+            #printable-certificate strong,
+            #printable-certificate h3,
+            #printable-certificate h2 {
+                color: #111827 !important;
+            }
+
+            #printable-certificate h2 {
+                color: #075985 !important;
+                font-size: 2.25rem !important;
+                letter-spacing: 0.08em !important;
+            }
+
+            #printable-certificate h3#cert-student-name {
+                color: #0369a1 !important;
+                font-size: 2rem !important;
+            }
+
+            #printable-certificate #cert-final-score {
+                color: #92400e !important;
+                font-size: 3rem !important;
+            }
+
+            #printable-certificate #cert-predicate {
+                color: #166534 !important;
+            }
+
+            #printable-certificate p {
+                line-height: 1.55 !important;
+            }
+
+            #printable-certificate .bg-slate-800\/90 {
+                background: #f1f5f9 !important;
+                border-color: #94a3b8 !important;
+            }
+
+            #printable-certificate .border-slate-700,
+            #printable-certificate .border-slate-800 {
+                border-color: #94a3b8 !important;
+            }
+
+            #printable-certificate .bg-amber-500\/10,
+            #printable-certificate .bg-sky-500\/10 {
+                display: none !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        .floating-controls {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 60;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 24px rgba(2, 6, 23, 0.25);
+            animation: floatPanelIn 0.5s ease both;
+        }
+
+        @keyframes floatPanelIn {
+            from {
+                opacity: 0;
+                transform: translateY(-12px) scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .floating-control-btn {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(125, 211, 252, 0.35);
+            background: rgba(15, 23, 42, 0.9);
+            color: #7dd3fc;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(125, 211, 252, 0.12);
+        }
+
+        .floating-control-btn:hover {
+            background: rgba(30, 41, 59, 0.95);
+            transform: translateY(-1px) scale(1.04);
+            border-color: rgba(125, 211, 252, 0.8);
+            box-shadow: 0 14px 28px rgba(125, 211, 252, 0.18);
+        }
+
+        .modern-hud {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .modern-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .game-stage > div {
+            position: relative;
+            overflow: hidden;
+            animation: stagePulse 0.55s ease both;
+        }
+
+        @keyframes stagePulse {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.99);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .slide-section .game-stage > div::before {
+            content: "";
+            position: absolute;
+            inset: -40% auto auto -40%;
+            width: 180%;
+            height: 180%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent 38%);
+            pointer-events: none;
+            animation: gameGlow 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes gameGlow {
+            0% {
+                transform: translateX(-2%) translateY(0) scale(1);
+            }
+            100% {
+                transform: translateX(2%) translateY(4%) scale(1.08);
+            }
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.7));
+            color: #e2e8f0;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 18px rgba(14, 165, 233, 0.08);
+        }
+
+        .status-pill strong {
+            color: #fbbf24;
+            text-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
+        }
+
+        .progress-shell {
+            width: min(100%, 16rem);
+            height: 0.6rem;
+            border-radius: 999px;
+            background: rgba(51, 65, 85, 0.8);
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #22c55e, #38bdf8, #fbbf24);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+        }
+
+        .toast {
+            position: fixed;
+            right: 1.25rem;
+            top: 4.25rem;
+            z-index: 70;
+            min-width: 12rem;
+            max-width: 18rem;
+            padding: 0.8rem 1rem;
+            border-radius: 0.9rem;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 14px 30px rgba(2, 6, 23, 0.3);
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: linear-gradient(135deg, rgba(16,185,129,0.95), rgba(5,150,105,0.95));
+        }
+
+        .toast.error {
+            background: linear-gradient(135deg, rgba(239,68,68,0.96), rgba(220,38,38,0.96));
+        }
+
+        .toast.info {
+            background: linear-gradient(135deg, rgba(14,165,233,0.96), rgba(2,132,199,0.96));
+        }
+
+        .particle-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 55;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            opacity: 0.8;
+            animation: floatParticle 1s ease-out forwards;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) scale(0.35);
+                opacity: 0;
+            }
+        }
+
+        .btn-bounce {
+            will-change: transform;
+            box-shadow: 0 18px 25px rgba(14, 165, 233, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-bounce::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(255,255,255,0.15), transparent 30%, transparent 70%, rgba(255,255,255,0.08));
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-bounce:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 20px 28px rgba(14, 165, 233, 0.18);
+        }
+
+        .btn-bounce:hover::before {
+            opacity: 1;
+        }
+
+        .btn-bounce:active {
+            transform: translateY(1px);
+        }
+
+        .mcq-option {
+            position: relative;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+            border: 1px solid rgba(96, 165, 250, 0.45);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 22px rgba(15, 23, 42, 0.26);
+            transition: all 0.22s ease;
+        }
+
+        .mcq-option:hover {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.28), rgba(59, 130, 246, 0.18), rgba(15, 23, 42, 0.96));
+            border-color: rgba(96, 165, 250, 0.9);
+            box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.42), 0 18px 30px rgba(59, 130, 246, 0.18), 0 0 18px rgba(96, 165, 250, 0.16);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .option-correct {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.92), rgba(5, 150, 105, 0.9), rgba(6, 78, 59, 0.9)) !important;
+            border-color: rgba(110, 231, 183, 1) !important;
+            box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.42), 0 0 18px rgba(52, 211, 153, 0.46), 0 18px 32px rgba(16, 185, 129, 0.28) !important;
+            transform: translateY(-1px) scale(1.01);
+            animation: answerFlashCorrect 0.5s ease;
+            color: #ecfdf5 !important;
+        }
+
+        .option-wrong {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.96), rgba(220, 38, 38, 0.92), rgba(127, 29, 29, 0.88)) !important;
+            border-color: rgba(254, 202, 202, 1) !important;
+            box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.42), 0 0 18px rgba(248, 113, 113, 0.45), 0 18px 30px rgba(239, 68, 68, 0.22) !important;
+            animation: answerFlashWrong 0.45s ease;
+            color: #fff1f2 !important;
+        }
+
+        @keyframes answerFlashCorrect {
+            0% { box-shadow: 0 0 0 rgba(52, 211, 153, 0), 0 0 0 rgba(52, 211, 153, 0); }
+            50% { box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25), 0 0 24px rgba(52, 211, 153, 0.4); }
+            100% { box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.38), 0 18px 30px rgba(16, 185, 129, 0.18); }
+        }
+
+        @keyframes answerFlashWrong {
+            0% { box-shadow: 0 0 0 rgba(248, 113, 113, 0), 0 0 0 rgba(248, 113, 113, 0); }
+            50% { box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.18), 0 0 22px rgba(248, 113, 113, 0.28); }
+            100% { box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.30), 0 18px 26px rgba(239, 68, 68, 0.14); }
+        }
+
+        .slide-title-image {
+            width: min(78%, 28rem);
+            height: auto;
+            margin: 0 auto 1.5rem;
+            display: block;
+            animation: title-float 3.2s ease-in-out infinite;
+            filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.3));
+        }
+
+        .slide-heading {
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.02em;
+            font-weight: 800;
+            line-height: 1.15;
+            padding: 0.2rem 0.6rem 0.35rem;
+            text-shadow: 0 3px 18px rgba(14, 165, 233, 0.22);
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.18));
+        }
+
+        .slide-heading::before {
+            content: "";
+            position: absolute;
+            inset: -2% -1% -4% -1%;
+            z-index: -1;
+            border-radius: 1.1rem;
+            background: linear-gradient(120deg, rgba(14, 165, 233, 0.24), rgba(59, 130, 246, 0.18), rgba(251, 191, 36, 0.18), rgba(168, 85, 247, 0.18));
+            filter: blur(12px);
+            opacity: 1;
+        }
+
+        .slide-heading-main {
+            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 12%, #7dd3fc 35%, #38bdf8 55%, #facc15 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(125, 211, 252, 0.35), 0 0 18px rgba(250, 204, 21, 0.18);
+        }
+
+        .slide-heading-accent {
+            color: #7dd3fc;
+            text-shadow: 0 0 24px rgba(125, 211, 252, 0.7), 0 0 18px rgba(59, 130, 246, 0.6);
+        }
+
+        .slide-heading-sub {
+            color: #f8fafc;
+            text-shadow: 0 0 22px rgba(255,255,255,0.35), 0 0 14px rgba(168, 85, 247, 0.38);
+        }
+
+        .slide-1-side-photo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 9.5rem;
+            height: 12.8rem;
+            border-radius: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.24);
+            background: rgba(15, 23, 42, 0.38);
+            box-shadow: 0 18px 32px rgba(2, 6, 23, 0.25);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.35rem;
+        }
+
+        .slide-1-side-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.9rem;
+            display: block;
+        }
+
+        .slide-1-side-left {
+            left: 1.2rem;
+        }
+
+        .slide-1-side-right {
+            right: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .slide-1-side-photo {
+                width: 7.2rem;
+                height: 9.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide-1-side-photo {
+                display: none;
+            }
+        }
+
+        @keyframes title-float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .floating-controls {
+                top: 0.75rem;
+                right: 0.75rem;
+                padding: 0.35rem;
+            }
+
+            .floating-control-btn {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            .slide-section {
+                border-radius: 1.1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .slide-title-image,
+            .slide-section,
+            .btn-bounce,
+            .floating-control-btn {
+                animation: none;
+                transition: none;
+            }
+        }
+
+        .concept-logo {
+            width: min(100%, 7rem);
+            aspect-ratio: 1;
+            margin: 0 auto 0.5rem;
+            background-image: url('./asets/LOGO 1.png');
+            background-repeat: no-repeat;
+            background-size: 300% auto;
+            background-position-y: 20%;
+        }
+
+        .concept-logo-alam {
+            background-position-x: 0%;
+        }
+
+        .concept-logo-non-alam {
+            background-position-x: 50%;
+        }
+
+        .concept-logo-sosial {
+            background-position-x: 100%;
+        }
+
+        #slide-4 > div {
+            background: rgba(51, 65, 85, 0.42);
+            border-color: rgba(226, 232, 240, 0.3);
+            box-shadow: 0 24px 50px rgba(2, 6, 23, 0.35);
+        }
+
+        #slide-4 .material-content > div {
+            background: rgba(71, 85, 105, 0.38);
+            border-color: rgba(186, 230, 253, 0.42);
+            box-shadow: inset 0 1px rgba(255, 255, 255, 0.16), 0 12px 28px rgba(2, 6, 23, 0.2);
+        }
+
+        #slide-4 .material-content > div > div {
+            border-color: rgba(226, 232, 240, 0.24);
+        }
+
+        #slide-4 .material-content [class*="bg-slate-800"] {
+            background: rgba(71, 85, 105, 0.46);
+            border-color: rgba(226, 232, 240, 0.22);
+        }
+
+        #slide-4 .material-content h3.text-sky-400 {
+            color: #67d4ff;
+            font-style: italic;
+        }
+
+        #slide-4 .material-content p {
+            color: #f1f5f9;
+        }
+
+        #slide-4 .material-content .text-slate-400 {
+            color: #cbd5e1;
+        }
+
+        .bencana-alam-showcase {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(125, 211, 252, 0.28);
+            background:
+                linear-gradient(135deg, rgba(2, 6, 23, 0.45), rgba(15, 23, 42, 0.24)),
+                url('./asets/B ALAM.jpg') center/cover no-repeat;
+            box-shadow: 0 24px 45px rgba(2, 6, 23, 0.35);
+        }
+
+        .bencana-alam-showcase::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 16, 27, 0.12), rgba(2, 6, 23, 0.5));
+            pointer-events: none;
+        }
+
+        .bencana-alam-header,
+        .bencana-alam-grid {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bencana-alam-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+            padding: 0.7rem 1rem 0.2rem;
+            border-radius: 1rem;
+            background: rgba(15, 23, 42, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+        }
+
+        .bencana-alam-header .title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .bencana-alam-header .title-wrap .label-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 0.8rem;
+            background: rgba(16, 185, 129, 0.14);
+            border: 1px solid rgba(110, 231, 183, 0.4);
+            color: #a7f3d0;
+            font-weight: 700;
+        }
+
+        .bencana-alam-header h3 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            color: #f8fafc;
+            text-shadow: 0 8px 22px rgba(14, 165, 233, 0.24);
+        }
+
+        .bencana-alam-header p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(226, 232, 240, 0.9);
+            text-align: right;
+            max-width: 22rem;
+            line-height: 1.5;
+        }
+
+        .bencana-alam-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            padding: 0 0.35rem 0.35rem;
+        }
+
+        .alam-card {
+            position: relative;
+            display: block;
+            height: 15.5rem;
+            min-height: 15.5rem;
+            overflow: hidden;
+            border-radius: 1.2rem;
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            background: rgba(15, 23, 42, 0.34);
+            backdrop-filter: blur(8px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.13), 0 18px 24px rgba(2, 6, 23, 0.18);
+        }
+
+        .alam-card-visual {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 1.15rem;
+        }
+
+        .alam-card-geologis .alam-card-visual {
+            background-image: url('./asets/ALAM1.jpg');
+        }
+
+        .alam-card-klimatologis .alam-card-visual {
+            background-image: url('./asets/ALAM2.jpg');
+        }
+
+        .alam-card-ekstraterestrial .alam-card-visual {
+            background-image: url('./asets/ALAM3.jpg');
+        }
+
+        .alam-card-body {
+            display: none;
+        }
+
+        .alam-card h4 {
+            display: none;
+        }
+
+        .nonalam-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .nonalam-card {
+            position: relative;
+            height: 15.5rem;
+            min-height: 15.5rem;
+            overflow: hidden;
+            border-radius: 1.2rem;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            background: rgba(15, 23, 42, 0.34);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 24px rgba(2, 6, 23, 0.2);
+        }
+
+        .nonalam-card-visual {
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 1.15rem;
+        }
+
+        .nonalam-card-left .nonalam-card-visual {
+            background-image: url('./asets/NONALAM1.jpg');
+        }
+
+        .nonalam-card-right .nonalam-card-visual {
+            background-image: url('./asets/NONALAM2.jpg');
+        }
+
+        .sosial-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .sosial-card {
+            position: relative;
+            height: 15.5rem;
+            min-height: 15.5rem;
+            overflow: hidden;
+            border-radius: 1.2rem;
+            border: 1px solid rgba(251, 113, 133, 0.3);
+            background: rgba(15, 23, 42, 0.34);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 24px rgba(2, 6, 23, 0.2);
+        }
+
+        .sosial-card-visual {
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 1.15rem;
+        }
+
+        .sosial-card-left .sosial-card-visual {
+            background-image: url('./asets/SOSIAL1.jpg');
+        }
+
+        .sosial-card-right .sosial-card-visual {
+            background-image: url('./asets/SOSIAL2.jpg');
+        }
+
+        @media (max-width: 1024px) {
+            .nonalam-showcase,
+            .sosial-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .alam-card p {
+            margin: 0;
+            font-size: 0.8rem;
+            line-height: 1.55;
+            color: rgba(226, 232, 240, 0.92);
+        }
+
+        .alam-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: auto;
+            padding-top: 0.15rem;
+        }
+
+        .alam-tags span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.38rem 0.6rem;
+            border-radius: 0.7rem;
+            font-size: 0.68rem;
+            font-weight: 600;
+            line-height: 1.2;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            color: #e2e8f0;
+        }
+
+        .alam-card-geologis .alam-tags span {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(110, 231, 183, 0.45);
+            color: #d1fae5;
+        }
+
+        .alam-card-klimatologis .alam-tags span {
+            background: rgba(59, 130, 246, 0.12);
+            border-color: rgba(125, 211, 252, 0.45);
+            color: #dbeafe;
+        }
+
+        .alam-card-ekstraterestrial .alam-tags span {
+            background: rgba(168, 85, 247, 0.12);
+            border-color: rgba(216, 180, 254, 0.5);
+            color: #f3e8ff;
+        }
+
+        @media (max-width: 1024px) {
+            .bencana-alam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bencana-alam-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bencana-alam-header p {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .alam-card {
+                min-height: 18.5rem;
+            }
+        }
+
+        #slide-5 > div {
+            background: rgba(30, 41, 59, 0.52);
+            border-color: rgba(226, 232, 240, 0.3);
+            box-shadow: 0 24px 50px rgba(2, 6, 23, 0.4);
+        }
+
+        #slide-5 > div > div:first-child {
+            border-color: rgba(226, 232, 240, 0.35);
+        }
+
+        #slide-5 > div > div:first-child h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 800;
+        }
+
+        #slide-5 > div > div:first-child > div:last-child {
+            background: rgba(15, 23, 42, 0.7);
+            border-color: rgba(226, 232, 240, 0.24);
+            border-radius: 999px;
+            padding: 0.375rem;
+        }
+
+        #slide-5 > div > div:first-child > div:last-child button {
+            border-radius: 999px;
+            padding: 0.625rem 1rem;
+        }
+
+        #slide-5 .game-stage > div {
+            background: rgba(71, 85, 105, 0.4);
+            border-color: rgba(186, 230, 253, 0.38);
+            box-shadow: inset 0 1px rgba(255, 255, 255, 0.14), 0 14px 30px rgba(2, 6, 23, 0.25);
+        }
+
+        #slide-5 #mcq-question-text,
+        #slide-5 #sort-current-item-box {
+            background: rgba(15, 23, 42, 0.54);
+            border: 1px solid rgba(186, 230, 253, 0.3);
+            border-radius: 1rem;
+            padding: 1rem 1.25rem;
+        }
+
+        #slide-5 #mcq-options-container button,
+        #slide-5 #match-terms-container button,
+        #slide-5 #match-defs-container button {
+            border-color: rgba(186, 230, 253, 0.3);
+            background: rgba(30, 41, 59, 0.72);
+            box-shadow: 0 6px 16px rgba(2, 6, 23, 0.18);
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+        }
+
+        #slide-5 #mcq-options-container button:hover,
+        #slide-5 #match-terms-container button:hover,
+        #slide-5 #match-defs-container button:hover,
+        #slide-5 #game-sort button:hover {
+            transform: translateY(-3px);
+            border-color: rgba(103, 212, 255, 0.8);
+            box-shadow: 0 10px 22px rgba(14, 165, 233, 0.2);
+        }
+
+        #slide-5 #match-terms-container button.matching-selected {
+            position: relative;
+            border-color: #67d4ff;
+            background: rgba(14, 116, 144, 0.85);
+            box-shadow: 0 0 0 3px rgba(103, 212, 255, 0.25), 0 12px 26px rgba(14, 165, 233, 0.3);
+            transform: translateY(-2px);
+        }
+
+        #slide-5 #match-terms-container button.matching-selected::after {
+            content: 'Dipilih';
+            position: absolute;
+            top: 0.5rem;
+            right: 0.65rem;
+            padding: 0.15rem 0.45rem;
+            border-radius: 999px;
+            background: #cffafe;
+            color: #164e63;
+            font-size: 0.625rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        #slide-5 #sort-current-item-box {
+            background: rgba(71, 85, 105, 0.5);
+            border-color: rgba(226, 232, 240, 0.3);
+        }
+
+        #slide-5 #game-sort > div > div:last-child button {
+            min-height: 7rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 22px rgba(2, 6, 23, 0.25);
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        #slide-5 .category-game-logo {
+            width: 5.5rem;
+            aspect-ratio: 1;
+            margin: 0 auto 0.5rem;
+            background-image: url('./asets/LOGO 1.png');
+            background-repeat: no-repeat;
+            background-size: 300% auto;
+            background-position-y: 20%;
+            filter: drop-shadow(0 6px 8px rgba(2, 6, 23, 0.35));
+        }
+
+        #slide-5 .category-game-logo-alam {
+            background-position-x: 0%;
+        }
+
+        #slide-5 .category-game-logo-non-alam {
+            background-position-x: 50%;
+        }
+
+        #slide-5 .category-game-logo-sosial {
+            background-position-x: 100%;
+        }
+
+        #slide-5 > div > div:last-child {
+            border-color: rgba(226, 232, 240, 0.3);
+        }
+
+        #slide-5 #live-total-score {
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid rgba(251, 191, 36, 0.7);
+            border-radius: 999px;
+            background: rgba(120, 53, 15, 0.36);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-geoDark text-slate-100 flex flex-col min-h-screen justify-between">
+
+    <div class="floating-controls no-print" aria-label="Kontrol tampilan">
+        <button id="sound-toggle" onclick="toggleSound()" aria-label="Matikan suara" title="Matikan suara" class="floating-control-btn">
+            <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <button id="fullscreen-toggle" onclick="toggleFullscreen()" aria-label="Masuk layar penuh" title="Masuk layar penuh" class="floating-control-btn">
+            <i class="fa-solid fa-expand"></i>
+        </button>
+    </div>
+
+    <!-- MAIN INTERACTIVE DISPLAY AREA -->
+    <div id="toast" class="toast info">Info</div>
+    <div class="particle-layer" id="particle-layer"></div>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-4 flex flex-col justify-center">
+
+        <!-- SLIDE 1: JUDUL & IDENTITAS MATA PELAJARAN -->
+        <section id="slide-1" class="slide-section slide-theme-1 active-slide flex flex-col justify-center items-center py-4">
+            <div class="w-full max-w-5xl rounded-3xl p-6 sm:p-10 relative overflow-hidden text-center">
+                <!-- Decorative background elements -->
+                <div class="absolute -top-24 -left-24 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="slide-1-side-photo slide-1-side-left">
+                    <img src="./asets/RAFLI SAPUTRA.jpeg" alt="Foto Rafli" />
+                </div>
+                <div class="slide-1-side-photo slide-1-side-right">
+                    <img src="./asets/Gambar Pak Dion.jpg" alt="Foto Pak Dion" />
+                </div>
+
+                <div class="inline-flex items-center space-x-2 bg-sky-500/10 text-sky-400 border border-sky-500/30 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-6">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>GEOGRAFI SMA KELAS XI — FASE F</span>
+                </div>
+
+                <img src="./asets/JD.png" alt="Jenis-jenis bencana dan pengertiannya" class="slide-title-image">
+
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base mb-8 font-light">
+                    Media pembelajaran interaktif berbasis Kurikulum Merdeka. Membantu siswa memahami konsep dasar bencana alam, bencana non-alam, dan bencana sosial secara komprehensif.
+                </p>
+
+                <!-- Metadata Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-[36rem] mx-auto mb-10 text-left">
+                    <div class="bg-slate-200/85 p-2.5 rounded-2xl border border-white/30 text-center shadow-lg">
+                        <div class="text-emerald-700 text-2xl mb-1"><i class="fa-solid fa-earth-asia"></i></div>
+                        <div class="text-[10px] text-slate-700">Mata Pelajaran</div>
+                        <div class="font-bold text-slate-900 text-sm">Geografi</div>
+                    </div>
+                    <div class="bg-slate-200/85 p-2.5 rounded-2xl border border-white/30 text-center shadow-lg">
+                        <div class="text-amber-600 text-2xl mb-1"><i class="fa-solid fa-medal"></i></div>
+                        <div class="text-[10px] text-slate-700">Tingkat / Fase</div>
+                        <div class="font-bold text-slate-900 text-sm">Kelas XI / Fase F</div>
+                    </div>
+                    <div class="bg-slate-200/85 p-2.5 rounded-2xl border border-white/30 text-center shadow-lg">
+                        <div class="text-sky-700 text-2xl mb-1"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <div class="text-[10px] text-slate-700">Elemen</div>
+                        <div class="font-bold text-slate-900 text-sm">Pemahaman<br>Geografi</div>
+                    </div>
+                    <div class="bg-slate-200/85 p-2.5 rounded-2xl border border-white/30 text-center shadow-lg">
+                        <div class="text-rose-600 text-2xl mb-1"><i class="fa-solid fa-stopwatch"></i></div>
+                        <div class="text-[10px] text-slate-700">Alokasi Waktu</div>
+                        <div class="font-bold text-slate-900 text-sm">2 X 45 Menit</div>
+                    </div>
+                </div>
+
+                <button onclick="navToSlide(2)" class="btn-bounce inline-flex items-center space-x-3 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-400 hover:to-sky-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-sky-500/25 transition duration-300 text-base">
+                    <span>Mulai Pembelajaran</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: INPUT IDENTITAS MURID -->
+        <section id="slide-2" class="slide-section slide-theme-2 hidden flex flex-col justify-center items-center py-6">
+            <div class="w-full max-w-5xl glass-card rounded-3xl p-6 sm:p-10 border border-slate-700/60 shadow-2xl relative">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-sky-500/10 text-sky-400 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-sky-500/20 text-3xl shadow-lg shadow-sky-500/10">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h2 class="slide-heading text-3xl sm:text-4xl"><span class="slide-heading-accent">Identitas</span> <span class="slide-heading-sub">Peserta Didik</span></h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2">Silakan isi data diri Anda sebelum melanjutkan ke materi pembelajaran</p>
+                </div>
+
+                <form id="student-form" onsubmit="saveStudentInfo(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-200 uppercase tracking-wider mb-3">
+                            Nama Lengkap <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="student-name" required placeholder="Masukkan nama lengkap Anda"
+                                class="w-full bg-slate-900/90 border border-slate-600 rounded-2xl py-5 pl-12 pr-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40 transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-200 uppercase tracking-wider mb-3">
+                                Kelas <span class="text-rose-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <i class="fa-solid fa-users absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" id="student-class" required placeholder="Contoh: X-1 / X IPA 2"
+                                    class="w-full bg-slate-900/90 border border-slate-600 rounded-2xl py-5 pl-12 pr-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40 transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-200 uppercase tracking-wider mb-3">
+                                Asal Sekolah <span class="text-rose-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <i class="fa-solid fa-school absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" id="student-school" required placeholder="Contoh: SMAN 1 Padang"
+                                    class="w-full bg-slate-900/90 border border-slate-600 rounded-2xl py-5 pl-12 pr-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40 transition">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="form-error" class="hidden text-rose-400 text-xs bg-rose-500/10 p-3 rounded-lg border border-rose-500/20 text-center font-medium">
+                        Harap lengkapi semua data identitas terlebih dahulu!
+                    </div>
+
+                    <div class="pt-5 flex items-center justify-between">
+                        <button type="button" onclick="navToSlide(1)" class="px-7 py-3.5 rounded-2xl border border-slate-500 bg-slate-700/50 text-slate-200 hover:bg-slate-700 transition text-sm font-bold">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Kembali
+                        </button>
+                        <button type="submit" class="btn-bounce bg-sky-500 hover:bg-sky-400 text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-sky-500/30 transition text-sm flex items-center">
+                            Lanjut ke Tujuan <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: TUJUAN PEMBELAJARAN DAN GAMBARAN UMUM -->
+        <section id="slide-3" class="slide-section slide-theme-3 hidden flex flex-col justify-center py-4">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-500/60 shadow-2xl">
+                <div class="flex items-center space-x-3 mb-6 border-b border-slate-500/60 pb-4">
+                    <div class="w-14 h-14 bg-slate-300/25 text-slate-100 rounded-2xl flex items-center justify-center font-bold text-2xl border border-slate-200/40 shadow-lg">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h2 class="slide-heading text-2xl sm:text-3xl"><span class="slide-heading-main">Tujuan Pembelajaran</span> <span class="slide-heading-sub">&amp; Overview</span></h2>
+                        <p class="text-sm text-slate-300">Capaian Pembelajaran Geografi Fase F (UU No. 24 Tahun 2007)</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Target Pembelajaran Card -->
+                    <div class="bg-slate-300/25 p-5 sm:p-6 rounded-2xl border border-slate-300/30 space-y-5 shadow-xl">
+                        <h3 class="text-base font-bold text-cyan-300 uppercase tracking-wider flex items-center">
+                            <i class="fa-solid fa-list-check mr-2"></i> Tujuan Pembelajaran (TP)
+                        </h3>
+                        <ul class="space-y-5 text-sm sm:text-base text-slate-100">
+                            <li class="flex items-start">
+                                <span class="bg-cyan-400/25 text-cyan-200 rounded-full w-9 h-9 flex items-center justify-center text-sm mr-4 mt-0.5 flex-shrink-0 font-bold border border-cyan-300/50 shadow-lg">1</span>
+                                <span>Peserta didik mampu <strong>mendeskripsikan pengertian bencana</strong> menurut UU No. 24 Tahun 2007 secara akurat.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-cyan-400/25 text-cyan-200 rounded-full w-9 h-9 flex items-center justify-center text-sm mr-4 mt-0.5 flex-shrink-0 font-bold border border-cyan-300/50 shadow-lg">2</span>
+                                <span>Peserta didik dapat <strong>mengklasifikasikan 3 jenis utama bencana</strong> (Alam, Non-Alam, dan Sosial).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-cyan-400/25 text-cyan-200 rounded-full w-9 h-9 flex items-center justify-center text-sm mr-4 mt-0.5 flex-shrink-0 font-bold border border-cyan-300/50 shadow-lg">3</span>
+                                <span>Peserta didik mampu <strong>mengidentifikasi contoh-contoh konkret</strong> dari bencana alam (geologis, klimatologis, ekstraterestrial), non-alam, dan sosial.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Peta Konsep Infografis Ringkas -->
+                    <div class="bg-slate-300/25 p-5 sm:p-6 rounded-2xl border border-slate-300/30 shadow-xl">
+                        <h3 class="text-base font-bold text-slate-100 uppercase tracking-wider flex items-center mb-4">
+                            <i class="fa-solid fa-sitemap mr-2"></i> Peta Konsep Kebencanaan
+                        </h3>
+                        <div class="grid grid-cols-3 gap-3 text-center text-xs">
+                            <div class="bg-emerald-950/80 border border-emerald-600/60 p-3 rounded-xl shadow-lg">
+                                <div class="concept-logo concept-logo-alam" role="img" aria-label="Ilustrasi bencana alam"></div>
+                                <div class="font-bold text-white">Bencana Alam</div>
+                                <div class="text-[10px] text-slate-300 mt-1">Geologis, Klimatis, Ekstraterestrial</div>
+                            </div>
+                            <div class="bg-amber-950/80 border border-amber-600/60 p-3 rounded-xl shadow-lg">
+                                <div class="concept-logo concept-logo-non-alam" role="img" aria-label="Ilustrasi bencana non-alam"></div>
+                                <div class="font-bold text-white">Bencana Non-Alam</div>
+                                <div class="text-[10px] text-slate-300 mt-1">Gagal Teknologi, Epidemi/Wabah</div>
+                            </div>
+                            <div class="bg-rose-950/80 border border-rose-600/60 p-3 rounded-xl shadow-lg">
+                                <div class="concept-logo concept-logo-sosial" role="img" aria-label="Ilustrasi bencana sosial"></div>
+                                <div class="font-bold text-white">Bencana Sosial</div>
+                                <div class="text-[10px] text-slate-300 mt-1">Konflik Sosial &amp; Terorisme</div>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-200 mt-4 italic text-center">
+                            *Sumber Materi dikembangkan sesuai panduan Geografi SMA Ruangguru & UU No. 24 Th 2007.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-3 border-t border-slate-500/60">
+                    <button onclick="navToSlide(2)" class="px-7 py-3 rounded-2xl border border-slate-300/40 bg-slate-300/25 text-slate-100 hover:bg-slate-300/40 transition text-sm font-semibold shadow-lg">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Identitas
+                    </button>
+                    <button onclick="navToSlide(4)" class="btn-bounce bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold px-8 py-3 rounded-2xl shadow-lg shadow-cyan-400/30 transition text-sm flex items-center">
+                        Eksplorasi Materi <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: URAIAN MATERI INTERAKTIF -->
+        <section id="slide-4" class="slide-section slide-theme-4 hidden flex flex-col justify-center py-4">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-300/30 shadow-2xl">
+                <!-- Header Slide 4 -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-5 border-b border-slate-200/40 gap-4">
+                    <div>
+                        <span class="text-sm font-semibold text-slate-200 uppercase tracking-widest">Materi Pembelajaran</span>
+                        <h2 class="slide-heading text-2xl sm:text-4xl"><span class="slide-heading-main">Pengertian</span> <span class="slide-heading-sub">&amp; Klasifikasi Bencana</span></h2>
+                    </div>
+
+                    <!-- Material Tab Controls -->
+                    <div class="flex flex-wrap justify-center bg-slate-700/65 p-1.5 rounded-full border border-slate-200/25 gap-1 shadow-xl">
+                        <button onclick="switchMaterialTab('tab-definisi')" id="btn-tab-definisi" class="px-4 py-2 rounded-full text-xs font-semibold transition bg-sky-400 text-slate-950 shadow-lg shadow-sky-400/40">
+                            Definisi
+                        </button>
+                        <button onclick="switchMaterialTab('tab-alam')" id="btn-tab-alam" class="px-4 py-2 rounded-full text-xs font-semibold transition text-slate-200 hover:text-white">
+                            Bencana Alam
+                        </button>
+                        <button onclick="switchMaterialTab('tab-nonalam')" id="btn-tab-nonalam" class="px-4 py-2 rounded-full text-xs font-semibold transition text-slate-200 hover:text-white">
+                            Non-Alam
+                        </button>
+                        <button onclick="switchMaterialTab('tab-sosial')" id="btn-tab-sosial" class="px-4 py-2 rounded-full text-xs font-semibold transition text-slate-200 hover:text-white">
+                            Sosial
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Material Tab Content 1: Definisi -->
+                <div id="tab-definisi" class="material-content space-y-4">
+                    <div class="p-5 sm:p-6 rounded-2xl border flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-full md:w-1/3 bg-slate-700/55 p-6 rounded-2xl border border-sky-300/50 text-center shadow-lg shadow-sky-500/20">
+                            <i class="fa-solid fa-triangle-exclamation text-5xl text-amber-400 mb-3 animate-bounce"></i>
+                            <h3 class="font-bold text-white text-lg">UU No. 24 Tahun 2007</h3>
+                            <p class="text-xs text-sky-300 mt-1">Landasan Hukum Kebencanaan Indonesia</p>
+                        </div>
+                        <div class="w-full md:w-2/3 space-y-3">
+                            <h3 class="text-xl font-bold text-sky-400">Apa itu Bencana?</h3>
+                            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                Menurut <strong>UU No. 24 Tahun 2007</strong>, bencana adalah peristiwa atau rangkaian peristiwa yang mengancam dan mengganggu kehidupan dan penghidupan masyarakat yang disebabkan, baik oleh <em>faktor alam, faktor nonalam maupun faktor manusia</em> sehingga mengakibatkan timbulnya korban jiwa manusia, kerusakan lingkungan, kerugian harta benda, dan dampak psikologis.
+                            </p>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs pt-2">
+                                <div class="bg-slate-800 p-3 rounded-xl text-rose-300"><i class="fa-solid fa-user-xmark mb-1"></i><br>Korban Jiwa</div>
+                                <div class="bg-slate-800 p-3 rounded-xl text-amber-300"><i class="fa-solid fa-house-crack mb-1"></i><br>Kerusakan Fisik</div>
+                                <div class="bg-slate-800 p-3 rounded-xl text-emerald-300"><i class="fa-solid fa-tree mb-1"></i><br>Kerusakan Alam</div>
+                                <div class="bg-slate-800 p-3 rounded-xl text-purple-300"><i class="fa-solid fa-brain mb-1"></i><br>Dampak Psikologis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Tab Content 2: Bencana Alam -->
+                <div id="tab-alam" class="material-content hidden">
+                    <div class="bencana-alam-showcase p-3 sm:p-4">
+                        <div class="bencana-alam-header">
+                            <div class="title-wrap">
+                                <div class="label-badge"><i class="fa-solid fa-mountain-sun"></i></div>
+                                <h3>Bencana Alam</h3>
+                            </div>
+                            <p>Bencana alam adalah bencana yang diakibatkan oleh peristiwa atau serangkaian peristiwa yang disebabkan oleh alam.</p>
+                        </div>
+
+                        <div class="bencana-alam-grid">
+                            <article class="alam-card alam-card-geologis">
+                                <div class="alam-card-visual" aria-label="Gambar bencana alam geologis"></div>
+                            </article>
+
+                            <article class="alam-card alam-card-klimatologis">
+                                <div class="alam-card-visual" aria-label="Gambar bencana alam klimatologis"></div>
+                            </article>
+
+                            <article class="alam-card alam-card-ekstraterestrial">
+                                <div class="alam-card-visual" aria-label="Gambar bencana alam ekstraterestrial"></div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Tab Content 3: Bencana Non-Alam -->
+                <div id="tab-nonalam" class="material-content hidden">
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+                        <div class="mb-3">
+                            <h3 class="text-2xl sm:text-3xl font-black text-amber-300 tracking-wide">Bencana Non-Alam</h3>
+                            <p class="mt-2 text-sm sm:text-base text-slate-300 leading-relaxed">
+                                Bencana non-alam adalah bencana yang diakibatkan oleh peristiwa non-alam, seperti gagal teknologi, modernisasi, hingga epidemi dan wabah penyakit.
+                            </p>
+                        </div>
+
+                        <div class="nonalam-showcase">
+                            <div class="nonalam-card nonalam-card-left">
+                                <div class="nonalam-card-visual" aria-label="Gambar bencana non-alam kiri"></div>
+                            </div>
+                            <div class="nonalam-card nonalam-card-right">
+                                <div class="nonalam-card-visual" aria-label="Gambar bencana non-alam kanan"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Tab Content 4: Bencana Sosial -->
+                <div id="tab-sosial" class="material-content hidden">
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+                        <div class="mb-3">
+                            <h3 class="text-2xl sm:text-3xl font-black text-rose-300 tracking-wide">Bencana Sosial</h3>
+                            <p class="mt-2 text-sm sm:text-base text-slate-300 leading-relaxed">
+                                Bencana sosial adalah bencana yang diakibatkan oleh peristiwa atau serangkaian peristiwa yang melibatkan manusia, seperti konflik sosial, kerusuhan, dan aksi terorisme.
+                            </p>
+                        </div>
+
+                        <div class="sosial-showcase">
+                            <div class="sosial-card sosial-card-left">
+                                <div class="sosial-card-visual" aria-label="Gambar bencana sosial kiri"></div>
+                            </div>
+                            <div class="sosial-card sosial-card-right">
+                                <div class="sosial-card-visual" aria-label="Gambar bencana sosial kanan"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Navigation Slide 4 -->
+                <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-700/60">
+                    <button onclick="navToSlide(3)" class="px-6 py-2.5 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition text-sm font-semibold">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Tujuan
+                    </button>
+                    <button onclick="navToSlide(5)" class="btn-bounce bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-7 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition text-sm flex items-center">
+                        Mulai Gim Edukasi <i class="fa-solid fa-gamepad ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: GIM EDUKASI INTERAKTIF (3 MODUL) -->
+        <section id="slide-5" class="slide-section slide-theme-5 hidden flex flex-col justify-center py-4">
+            <div class="glass-card rounded-3xl p-5 sm:p-7 border border-slate-700/60 shadow-2xl">
+                <!-- Header & Game Selector Tabs -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-700/60 gap-3">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold mb-1">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>Evaluasi Interaktif</span>
+                        </div>
+                        <h2 class="slide-heading text-xl sm:text-2xl"><span class="slide-heading-main">Gim Edukasi</span> <span class="slide-heading-sub">Geografi</span></h2>
+                    </div>
+
+                    <div class="modern-hud">
+                        <div class="modern-badges">
+                            <span class="status-pill">Combo <strong id="combo-badge">x1</strong></span>
+                            <span class="status-pill">Level <strong id="level-badge">1</strong></span>
+                        </div>
+                        <div class="progress-shell" aria-label="Progress game">
+                            <div id="game-progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Mini-Game Stage Switcher -->
+                    <div class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 space-x-1 flex-wrap gap-1">
+                        <button onclick="switchGameMode('game-mcq')" id="btn-game-mcq" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-white">
+                            1. Pilihan Ganda
+                        </button>
+                        <button onclick="switchGameMode('game-match')" id="btn-game-match" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white">
+                            2. Menjodohkan
+                        </button>
+                        <button onclick="switchGameMode('game-sort')" id="btn-game-sort" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white">
+                            3. Mengkategorikan
+                        </button>
+                        <button onclick="switchGameMode('game-truefalse')" id="btn-game-truefalse" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white">
+                            4. Benar / Salah
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GAME MODUL 1: PILIHAN GANDA (4 Soal) -->
+                <div id="game-mcq" class="game-stage space-y-4">
+                    <div class="bg-slate-900/90 p-4 sm:p-6 rounded-2xl border border-slate-800 relative overflow-hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <span id="mcq-progress" class="text-xs font-bold text-sky-400 uppercase tracking-wider">Soal 1 dari 4</span>
+                            <span id="mcq-score-badge" class="text-xs font-semibold bg-sky-950 text-sky-300 px-3 py-1 rounded-full border border-sky-800">Skor MCQ: 0/40</span>
+                        </div>
+
+                        <!-- Question Box -->
+                        <h3 id="mcq-question-text" class="text-sm sm:text-base font-semibold text-slate-100 mb-6">
+                            Loading pertanyaan...
+                        </h3>
+
+                        <!-- Options Box -->
+                        <div id="mcq-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+
+                        <!-- Quiz Feedback -->
+                        <div id="mcq-feedback" class="hidden mt-4 p-3 rounded-xl text-xs font-semibold text-center"></div>
+                    </div>
+                </div>
+
+                <!-- GAME MODUL 2: MENJODOHKAN (MATCHING PAIRS) -->
+                <div id="game-match" class="game-stage hidden space-y-4">
+                    <div class="bg-slate-900/90 p-4 sm:p-6 rounded-2xl border border-slate-800 relative overflow-hidden">
+                        <div class="flex justify-between items-center mb-3">
+                            <p class="text-xs text-slate-300">Klik satu <strong>Istilah</strong> di sebelah kiri, lalu klik <strong>Definisi</strong> yang cocok di sebelah kanan.</p>
+                            <span id="match-score-badge" class="text-xs font-semibold bg-amber-950 text-amber-300 px-3 py-1 rounded-full border border-amber-800">Skor: 0/30</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Left Column: Term Cards -->
+                            <div class="space-y-2.5" id="match-terms-container">
+                                <!-- Dynamic JS -->
+                            </div>
+
+                            <!-- Right Column: Definition Cards -->
+                            <div class="space-y-2.5" id="match-defs-container">
+                                <!-- Dynamic JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME MODUL 3: MENGKATEGORIKAN (CATEGORY SORTING) -->
+                <div id="game-sort" class="game-stage hidden space-y-4">
+                    <div class="bg-slate-900/90 p-4 sm:p-5 rounded-2xl border border-slate-800 relative overflow-hidden">
+                        <div class="flex justify-between items-center mb-3">
+                            <p class="text-xs text-slate-300">Pilih item bencana di bawah ini, lalu klik tombol kategori yang sesuai!</p>
+                            <span id="sort-score-badge" class="text-xs font-semibold bg-emerald-950 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800">Skor: 0/30</span>
+                        </div>
+
+                        <!-- Item to classify -->
+                        <div id="sort-current-item-box" class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-center mb-4">
+                            <span class="text-xs text-slate-400 block mb-1">Item Bencana Saat Ini:</span>
+                            <span id="sort-item-name" class="text-lg font-bold text-amber-400">Loading item...</span>
+                        </div>
+
+                        <!-- Target Categories -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button onclick="submitSortCategory('Alam')" class="btn-bounce bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-700/60 p-4 rounded-xl text-center">
+                                <div class="category-game-logo category-game-logo-alam" role="img" aria-label="Ilustrasi bencana alam"></div>
+                                <div class="font-bold text-slate-200 text-sm">Bencana Alam</div>
+                            </button>
+                            <button onclick="submitSortCategory('Non-Alam')" class="btn-bounce bg-amber-950/80 hover:bg-amber-900 border border-amber-700/60 p-4 rounded-xl text-center">
+                                <div class="category-game-logo category-game-logo-non-alam" role="img" aria-label="Ilustrasi bencana non-alam"></div>
+                                <div class="font-bold text-slate-200 text-sm">Bencana Non-Alam</div>
+                            </button>
+                            <button onclick="submitSortCategory('Sosial')" class="btn-bounce bg-rose-950/80 hover:bg-rose-900 border border-rose-700/60 p-4 rounded-xl text-center">
+                                <div class="category-game-logo category-game-logo-sosial" role="img" aria-label="Ilustrasi bencana sosial"></div>
+                                <div class="font-bold text-slate-200 text-sm">Bencana Sosial</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME MODUL 4: BENAR ATAU SALAH -->
+                <div id="game-truefalse" class="game-stage hidden space-y-4">
+                    <div class="bg-slate-900/90 p-4 sm:p-6 rounded-2xl border border-slate-800 relative overflow-hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <span id="tf-progress" class="text-xs font-bold text-violet-400 uppercase tracking-wider">Soal 1 dari 4</span>
+                            <span id="tf-score-badge" class="text-xs font-semibold bg-violet-950 text-violet-300 px-3 py-1 rounded-full border border-violet-800">Skor Benar/Salah: 0/20</span>
+                        </div>
+
+                        <h3 id="tf-question-text" class="text-sm sm:text-base font-semibold text-slate-100 mb-6">
+                            Loading pertanyaan...
+                        </h3>
+
+                        <div id="tf-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+
+                        <div id="tf-feedback" class="hidden mt-4 p-3 rounded-xl text-xs font-semibold text-center"></div>
+                    </div>
+                </div>
+
+                <!-- Footer Navigation & Total Score Calculation -->
+                <div class="flex items-center justify-between pt-4 mt-4 border-t border-slate-700/60">
+                    <button onclick="navToSlide(4)" class="px-6 py-2.5 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition text-sm font-semibold">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Materi
+                    </button>
+                    
+                    <div class="text-center hidden sm:block">
+                        <span class="text-xs text-slate-200">Total Nilai Gim: </span>
+                        <span id="live-total-score" class="text-base font-bold text-amber-400">0 / 120</span>
+                    </div>
+
+                    <button onclick="finishGameAndGenerateCert()" class="btn-bounce bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold px-7 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition text-sm flex items-center">
+                        Lihat Sertifikat <i class="fa-solid fa-award ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: SERTIFIKAT KELULUSAN & NILAI AKHIR (DAPAT DICETAK PDF) -->
+        <section id="slide-6" class="slide-section slide-theme-6 hidden flex flex-col justify-center items-center py-4">
+            <!-- Printable Certificate Container -->
+            <div id="printable-certificate" class="w-full max-w-4xl bg-slate-900 border-4 border-amber-500/80 rounded-3xl p-6 sm:p-10 shadow-2xl relative text-center overflow-hidden">
+                <!-- Background Certificate Patterns -->
+                <div class="absolute -top-20 -left-20 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                <!-- Header Sertifikat -->
+                <div class="border-b-2 border-slate-700 pb-4 mb-6">
+                    <div class="flex justify-center items-center space-x-2 text-amber-400 text-3xl mb-1">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h2 class="slide-heading text-2xl sm:text-4xl tracking-wider uppercase font-serif">
+                        <span class="slide-heading-main">SERTIFIKAT</span> <span class="slide-heading-accent">KELULUSAN</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300 tracking-widest uppercase mt-1">
+                        MEDIA PEMBELAJARAN INTERAKTIF GEOGRAFI SMA (FASE F)
+                    </p>
+                </div>
+
+                <!-- Certificate Body Content -->
+                <p class="text-xs sm:text-sm text-slate-400 italic">Diberikan secara sah kepada peserta didik:</p>
+                <h3 id="cert-student-name" class="text-2xl sm:text-4xl font-black text-sky-400 my-2 underline decoration-sky-500/40 decoration-wavy">
+                    [ Nama Peserta Didik ]
+                </h3>
+                <p id="cert-student-details" class="text-xs sm:text-sm text-slate-300 mb-6">
+                    Kelas: <span class="font-bold text-white">[ Kelas ]</span> | Sekolah: <span class="font-bold text-white">[ Asal Sekolah ]</span>
+                </p>
+
+                <p class="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed mb-6">
+                    Telah menyelesaikan eksplorasi materi serta evaluasi gim interaktif pada topik 
+                    <strong>"Jenis-Jenis Bencana dan Pengertiannya"</strong> sesuai standar Kurikulum Merdeka.
+                </p>
+
+                <!-- Score Display Box -->
+                <div class="max-w-xs mx-auto bg-slate-800/90 border border-slate-700 rounded-2xl p-4 mb-6 shadow-inner">
+                    <div class="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">NILAI AKHIR EVALUASI</div>
+                    <div id="cert-final-score" class="text-4xl sm:text-5xl font-black text-amber-400">
+                        0
+                    </div>
+                    <div id="cert-predicate" class="text-xs font-semibold text-emerald-400 mt-1">
+                        Predikat: Sangat Baik
+                    </div>
+                </div>
+
+                <!-- Signatures & Date -->
+                <div class="grid grid-cols-2 gap-8 pt-4 border-t border-slate-800 text-xs text-slate-400">
+                    <div class="text-left">
+                        <p>Tanggal Penyelesaian:</p>
+                        <p id="cert-date" class="font-bold text-slate-200 mt-1">12 September 2026</p>
+                    </div>
+                    <div class="text-right">
+                        <p>Modul Pembelajaran:</p>
+                        <p class="font-bold text-slate-200 mt-1">Geografi Fase F - Bencana</p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons (Hidden when printing) -->
+                <div class="no-print pt-8 flex flex-wrap items-center justify-center gap-4">
+                    <button onclick="navToSlide(5)" class="px-6 py-3 rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition text-sm font-semibold">
+                        <i class="fa-solid fa-rotate-left mr-2"></i> Ulangi Gim
+                    </button>
+                    <button onclick="printCertificate()" class="btn-bounce bg-sky-500 hover:bg-sky-400 text-white font-bold px-8 py-3 rounded-xl shadow-xl shadow-sky-500/25 transition text-sm flex items-center">
+                        <i class="fa-solid fa-print mr-2"></i> Cetak / Simpan PDF
+                    </button>
+                    <button onclick="navToSlide(7)" class="btn-bounce bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-7 py-3 rounded-xl shadow-xl shadow-amber-500/25 transition text-sm flex items-center">
+                        Tentang Mahasiswa <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: LOGO DAN BIODATA MAHASISWA -->
+        <section id="slide-7" class="slide-section slide-theme-7 hidden flex flex-col justify-center items-center py-4">
+            <div class="w-full max-w-3xl glass-card rounded-3xl p-6 sm:p-10 border border-sky-300/30 shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10">
+                    <p class="text-sm text-sky-300 font-semibold uppercase tracking-[0.25em] mb-3">Media Pembelajaran Geografi</p>
+                    <h2 class="slide-heading text-2xl sm:text-4xl mb-6"><span class="slide-heading-main">Profil</span> <span class="slide-heading-sub">Mahasiswa</span></h2>
+
+                    <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-7 rounded-full bg-white p-2 shadow-2xl shadow-sky-500/30 border-4 border-sky-300/60">
+                        <img src="./asets/LOGO UNP.png" alt="Logo Universitas Negeri Padang" class="w-full h-full object-contain rounded-full">
+                    </div>
+
+                    <div class="max-w-2xl mx-auto grid grid-cols-2 gap-4 sm:gap-8 mb-8">
+                        <div>
+                            <div class="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden shadow-2xl shadow-cyan-500/25 border-4 border-cyan-300/60 bg-slate-800/65">
+                                <img src="./asets/RAFLI SAPUTRA.jpeg" alt="Foto Rafli" class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-cyan-300 mt-2">Mahasiswa</p>
+                        </div>
+                        <div>
+                            <div class="w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden shadow-2xl shadow-emerald-500/25 border-4 border-emerald-300/60 bg-emerald-900/40">
+                                <img src="./asets/Gambar Pak Dion.jpg" alt="Foto Pak Dion" class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-emerald-300 mt-2">Dosen Pengampu</p>
+                        </div>
+                    </div>
+
+                    <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
+                        <div class="bg-slate-800/75 border border-cyan-300/40 rounded-2xl p-4 sm:col-span-2">
+                            <p class="text-xs text-cyan-300 uppercase tracking-wider font-bold mb-3">Biodata Mahasiswa</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase tracking-wider">Nama</p>
+                                    <p class="text-base font-bold text-white mt-1">Rafli Saputra</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase tracking-wider">NIM</p>
+                                    <p class="text-base font-bold text-white mt-1">25045026</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase tracking-wider">Program Studi</p>
+                                    <p class="text-base font-bold text-white mt-1">Pendidikan Geografi</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase tracking-wider">Universitas</p>
+                                    <p class="text-base font-bold text-white mt-1">Universitas Negeri Padang</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800/75 border border-emerald-300/40 rounded-2xl p-4 sm:col-span-2">
+                            <p class="text-xs text-emerald-300 uppercase tracking-wider font-bold">Dosen Pengampu</p>
+                            <p class="text-base font-bold text-white mt-1">Dr. Nofrion, M.Pd.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
+                        Terima kasih telah menggunakan media pembelajaran interaktif ini.
+                    </p>
+
+                    <button onclick="navToSlide(6)" class="btn-bounce inline-flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 border border-slate-500 text-white font-bold px-7 py-3 rounded-2xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Kembali ke Sertifikat</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <audio id="end-game-sound" preload="none" aria-hidden="true"></audio>
+    <audio id="background-music" preload="none" loop aria-hidden="true"></audio>
+    <audio id="correct-answer-sound" preload="none" aria-hidden="true"></audio>
+    <audio id="wrong-answer-sound" preload="none" aria-hidden="true"></audio>
+    <audio id="button-click-sound" preload="none" aria-hidden="true"></audio>
+    <audio id="typing-sound" preload="none" aria-hidden="true"></audio>
+
+    <!-- FOOTER INFO -->
+    <footer class="no-print bg-slate-900/60 border-t border-slate-800 py-3 text-center text-xs text-slate-500">
+        <p>© 2026 Media Interaktif Geografi SMA Kelas XI Fase F | Berdasarkan UU No. 24 Th 2007 & Ruangguru</p>
+    </footer>
+
+    <script>
+        /* GLOBAL APP STATE */
+        const state = {
+            currentSlide: 1,
+            userInteracted: false,
+            soundEnabled: true,
+            soundPool: {},
+            musicLoopTimer: null,
+            typingCooldownUntil: 0,
+            student: {
+                name: '',
+                class: '',
+                school: ''
+            },
+            scores: {
+                mcq: 0,
+                matching: 0,
+                sorting: 0,
+                trueFalse: 0
+            },
+            combo: 1,
+            level: 1,
+            streak: 0,
+            bestStreak: 0,
+            // MCQ State
+            mcqIndex: 0,
+            mcqData: [
+                {
+                    q: "Berdasarkan UU No. 24 Tahun 2007, gempa bumi, tsunami, dan gunung meletus termasuk ke dalam klasifikasi bencana...",
+                    options: ["A. Bencana Sosial", "B. Bencana Non-Alam", "C. Bencana Alam Geologis", "D. Bencana Buatan"],
+                    correct: 2
+                },
+                {
+                    q: "Wabah epidemi penyakit menular seperti COVID-19 dan gagal teknologi industri dikategorikan sebagai...",
+                    options: ["A. Bencana Alam", "B. Bencana Non-Alam", "C. Bencana Ekstraterestrial", "D. Bencana Klimatologis"],
+                    correct: 1
+                },
+                {
+                    q: "Bencana alam yang diakibatkan oleh fenomena cuaca ekstrem dan dinamika iklim seperti banjir bandang dan kekeringan dinamakan bencana alam...",
+                    options: ["A. Geologis", "B. Tektonik", "C. Klimatologis", "D. Ekstraterestrial"],
+                    correct: 2
+                },
+                {
+                    q: "Menurut klasifikasi bencana, konflik antarkelompok masyarakat, kerusuhan, dan aksi terorisme termasuk jenis bencana...",
+                    options: ["A. Bencana Sosial", "B. Bencana Alam Geologis", "C. Bencana Non-Alam", "D. Bencana Alam Klimatologis"],
+                    correct: 0
+                }
+            ],
+            // Matching State
+            selectedMatchTerm: null,
+            matchingPairsCompleted: 0,
+            matchingData: [
+                { id: 1, term: "Alam Geologis", def: "Bencana akibat aktivitas lempeng bumi / magma" },
+                { id: 2, term: "Alam Klimatologis", def: "Bencana akibat cuaca ekstrem & perubahan iklim" },
+                { id: 3, term: "Gagal Teknologi", def: "Kecelakaan industri nuklir atau bendungan jebol" },
+                { id: 4, term: "Bencana Sosial", def: "Konflik bersenjata atau kerusuhan antarkelompok" }
+            ],
+            // Sorting Game State
+            sortIndex: 0,
+            sortItems: [
+                { name: "Letusan Gunung Merapi", category: "Alam" },
+                { name: "Kebocoran Gas Beracun Industri", category: "Non-Alam" },
+                { name: "Konflik Bersosial Antarsuku", category: "Sosial" },
+                { name: "Banjir Bandang & Tanah Longsor", category: "Alam" },
+                { name: "Pandemi Flu Burung", category: "Non-Alam" },
+                { name: "Aksi Terorisme Bersenjata", category: "Sosial" }
+            ],
+            trueFalseIndex: 0,
+            trueFalseData: [
+                { q: "Gempa bumi merupakan contoh bencana alam geologis.", answer: true },
+                { q: "Pandemi COVID-19 termasuk ke dalam bencana non-alam.", answer: true },
+                { q: "Kerusuhan antarkelompok masyarakat termasuk jenis bencana sosial.", answer: true },
+                { q: "Kebocoran gas beracun di pabrik termasuk bencana alam.", answer: false },
+                { q: "Banjir bandang termasuk bencana alam klimatologis.", answer: true },
+                { q: "Aksi terorisme termasuk bencana sosial.", answer: true }
+            ]
+        };
+
+        // MP3-BASED SOUND EFFECTS
+        const SOUND_MAP = {
+            'background-music': './asets/SOUND.mp3',
+            'button-click-sound': './asets/KLIK.mp3',
+            'correct-answer-sound': './asets/BENAR.mp3',
+            'wrong-answer-sound': './asets/SALAH.mp3',
+            'typing-sound': './asets/T.mp3',
+            'end-game-sound': './asets/S AKHIR.mp3'
+        };
+
+        function ensureSoundPool() {
+            Object.entries(SOUND_MAP).forEach(([id, src]) => {
+                if (!state.soundPool[id]) {
+                    const audio = new Audio(src);
+                    audio.preload = 'auto';
+                    audio.muted = !state.soundEnabled;
+                    state.soundPool[id] = audio;
+                }
+            });
+        }
+
+        function getSoundInstance(id) {
+            ensureSoundPool();
+            return state.soundPool[id];
+        }
+
+        function playAudioElement(id) {
+            const audio = getSoundInstance(id);
+            if (!audio || !state.soundEnabled || !state.userInteracted) return;
+
+            audio.muted = !state.soundEnabled;
+            audio.loop = false;
+            audio.volume = id === 'typing-sound' ? 0.28 : 1;
+            audio.playbackRate = id === 'typing-sound' ? 0.96 : 1;
+            audio.pause();
+            audio.currentTime = 0;
+
+            const playPromise = audio.play();
+            if (playPromise && playPromise.catch) {
+                playPromise.catch(() => {});
+            }
+        }
+
+        function stopAllSoundEffects() {
+            Object.values(state.soundPool).forEach(audio => {
+                if (!audio) return;
+                audio.pause();
+                audio.currentTime = 0;
+                audio.muted = !state.soundEnabled;
+            });
+        }
+
+        function unlockAudio() {
+            if (state.userInteracted) return;
+            state.userInteracted = true;
+            ensureSoundPool();
+
+            Object.values(state.soundPool).forEach(audio => {
+                if (audio) audio.muted = !state.soundEnabled;
+            });
+
+            if (state.soundEnabled && state.currentSlide < 6) {
+                playBackgroundMusic();
+            }
+        }
+
+        function playSound(type) {
+            if (!state.soundEnabled || !state.userInteracted) return;
+
+            const map = {
+                click: 'button-click-sound',
+                success: 'correct-answer-sound',
+                error: 'wrong-answer-sound',
+                win: 'end-game-sound',
+                typing: 'typing-sound'
+            };
+
+            const selected = map[type] || map.click;
+            playAudioElement(selected);
+        }
+
+        function toggleSound() {
+            state.soundEnabled = !state.soundEnabled;
+            const button = document.getElementById('sound-toggle');
+            const icon = button ? button.querySelector('i') : null;
+
+            if (icon) {
+                icon.className = state.soundEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+            }
+            if (button) {
+                button.setAttribute('aria-label', state.soundEnabled ? 'Matikan suara' : 'Nyalakan suara');
+                button.setAttribute('title', state.soundEnabled ? 'Matikan suara' : 'Nyalakan suara');
+            }
+
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.muted = !state.soundEnabled;
+            });
+
+            if (state.soundEnabled) {
+                unlockAudio();
+                if (state.currentSlide < 6) playBackgroundMusic();
+            } else {
+                stopBackgroundMusic();
+                stopAllSoundEffects();
+            }
+        }
+
+        function toggleFullscreen() {
+            const button = document.getElementById('fullscreen-toggle');
+            if (!button) return;
+            const icon = button.querySelector('i');
+            const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+
+            if (!isFullscreen) {
+                const root = document.documentElement;
+                if (root.requestFullscreen) {
+                    root.requestFullscreen();
+                } else if (root.webkitRequestFullscreen) {
+                    root.webkitRequestFullscreen();
+                }
+                if (icon) icon.className = 'fa-solid fa-compress';
+                button.setAttribute('aria-label', 'Keluar layar penuh');
+                button.setAttribute('title', 'Keluar layar penuh');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+                if (icon) icon.className = 'fa-solid fa-expand';
+                button.setAttribute('aria-label', 'Masuk layar penuh');
+                button.setAttribute('title', 'Masuk layar penuh');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            const button = document.getElementById('fullscreen-toggle');
+            if (!button) return;
+            const icon = button.querySelector('i');
+            const isFullscreen = !!document.fullscreenElement;
+            if (icon) icon.className = isFullscreen ? 'fa-solid fa-compress' : 'fa-solid fa-expand';
+            button.setAttribute('aria-label', isFullscreen ? 'Keluar layar penuh' : 'Masuk layar penuh');
+            button.setAttribute('title', isFullscreen ? 'Keluar layar penuh' : 'Masuk layar penuh');
+        });
+
+        document.addEventListener('webkitfullscreenchange', () => {
+            const button = document.getElementById('fullscreen-toggle');
+            if (!button) return;
+            const icon = button.querySelector('i');
+            const isFullscreen = !!document.webkitFullscreenElement;
+            if (icon) icon.className = isFullscreen ? 'fa-solid fa-compress' : 'fa-solid fa-expand';
+            button.setAttribute('aria-label', isFullscreen ? 'Keluar layar penuh' : 'Masuk layar penuh');
+            button.setAttribute('title', isFullscreen ? 'Keluar layar penuh' : 'Masuk layar penuh');
+        });
+
+        function stopBackgroundMusic() {
+            const bg = state.soundPool['background-music'];
+            if (bg) {
+                bg.pause();
+                bg.currentTime = 0;
+            }
+            if (state.musicLoopTimer) {
+                clearInterval(state.musicLoopTimer);
+                state.musicLoopTimer = null;
+            }
+        }
+
+        function playBackgroundMusic() {
+            if (!state.soundEnabled || !state.userInteracted || state.currentSlide >= 6) {
+                stopBackgroundMusic();
+                return;
+            }
+
+            const bg = getSoundInstance('background-music');
+            if (!bg) return;
+
+            bg.loop = true;
+            bg.muted = !state.soundEnabled;
+            if (!bg.paused) return;
+
+            bg.pause();
+            bg.currentTime = 0;
+            const playPromise = bg.play();
+            if (playPromise && playPromise.catch) {
+                playPromise.catch(() => {});
+            }
+        }
+
+        function playEndGameSound() {
+            if (!state.soundEnabled || !state.userInteracted) return;
+            playSound('win');
+        }
+
+        function playAnswerSound(isCorrect) {
+            playSound(isCorrect ? 'success' : 'error');
+        }
+
+        function playButtonClickSound() {
+            playSound('click');
+        }
+
+        function playTypingSound() {
+            const now = Date.now();
+            if (now < state.typingCooldownUntil) return;
+            state.typingCooldownUntil = now + 120;
+            playSound('typing');
+        }
+
+        document.addEventListener('pointerdown', unlockAudio, { passive: true });
+        document.addEventListener('keydown', event => {
+            unlockAudio();
+
+            const target = event.target;
+            if (target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+                if (event.key && event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+                    playTypingSound();
+                }
+            }
+        }, { passive: true });
+
+        document.addEventListener('click', event => {
+            if (event.target.closest('button')) {
+                unlockAudio();
+                playButtonClickSound();
+            }
+        });
+
+        document.addEventListener('input', event => {
+            const target = event.target;
+            if (target instanceof HTMLElement && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+                unlockAudio();
+                if (target.value && target.value.length > 0) {
+                    playTypingSound();
+                }
+            }
+        });
+
+        // SLIDE NAVIGATION CONTROLLER
+        function navToSlide(slideNum) {
+            // Validate form input before leaving slide 2 if forward
+            if (slideNum > 2 && (!state.student.name || !state.student.class || !state.student.school)) {
+                const nameInput = document.getElementById('student-name').value;
+                const classInput = document.getElementById('student-class').value;
+                const schoolInput = document.getElementById('student-school').value;
+
+                if (!nameInput || !classInput || !schoolInput) {
+                    showSlide(2);
+                    document.getElementById('form-error').classList.remove('hidden');
+                    return;
+                } else {
+                    state.student.name = nameInput;
+                    state.student.class = classInput;
+                    state.student.school = schoolInput;
+                }
+            }
+
+            showSlide(slideNum);
+            if (slideNum < 6 && state.soundEnabled && state.userInteracted) {
+                playBackgroundMusic();
+            }
+        }
+
+        function showSlide(slideNum) {
+            state.currentSlide = slideNum;
+            if (slideNum >= 6) {
+                stopBackgroundMusic();
+            }
+
+            document.querySelectorAll('.slide-section').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('visible');
+            });
+
+            const target = document.getElementById(`slide-${slideNum}`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('visible');
+                requestAnimationFrame(() => {
+                    target.classList.add('visible');
+                });
+            }
+
+            // Update Header Stepper UI
+            for (let i = 1; i <= 7; i++) {
+                const btn = document.getElementById(`step-btn-${i}`);
+                if (btn) {
+                    if (i === slideNum) {
+                        btn.className = "w-8 h-8 rounded-full text-xs font-semibold transition-all duration-300 bg-sky-500 text-white flex items-center justify-center ring-4 ring-sky-500/30 scale-110";
+                    } else if (i < slideNum) {
+                        btn.className = "w-8 h-8 rounded-full text-xs font-semibold transition-all duration-300 bg-emerald-500 text-white flex items-center justify-center";
+                    } else {
+                        btn.className = "w-8 h-8 rounded-full text-xs font-semibold transition-all duration-300 bg-slate-700 text-slate-400 flex items-center justify-center";
+                    }
+                }
+            }
+
+            // Scroll top smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // SAVE STUDENT INFO
+        function saveStudentInfo(e) {
+            e.preventDefault();
+            state.student.name = document.getElementById('student-name').value;
+            state.student.class = document.getElementById('student-class').value;
+            state.student.school = document.getElementById('student-school').value;
+
+            document.getElementById('form-error').classList.add('hidden');
+            navToSlide(3);
+        }
+
+        // MATERIAL TAB SWITCHER
+        function switchMaterialTab(tabId) {
+            document.querySelectorAll('.material-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            const tabs = ['tab-definisi', 'tab-alam', 'tab-nonalam', 'tab-sosial'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                if (t === tabId) {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-sky-500 text-white";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
+                }
+            });
+        }
+
+        // GAME MODE TAB SWITCHER
+        function switchGameMode(gameId) {
+            document.querySelectorAll('.game-stage').forEach(el => el.classList.add('hidden'));
+            document.getElementById(gameId).classList.remove('hidden');
+
+            const modes = ['game-mcq', 'game-match', 'game-sort', 'game-truefalse'];
+            modes.forEach(m => {
+                const btn = document.getElementById(`btn-${m}`);
+                if (btn) {
+                    if (m === gameId) {
+                        btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-emerald-500 text-white";
+                    } else {
+                        btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-400 hover:text-white";
+                    }
+                }
+            });
+        }
+
+        // --- GAME 1: MCQ LOGIC ---
+        function renderMCQ() {
+            const qObj = state.mcqData[state.mcqIndex];
+            document.getElementById('mcq-progress').innerText = `Soal ${state.mcqIndex + 1} dari ${state.mcqData.length}`;
+            document.getElementById('mcq-question-text').innerText = qObj.q;
+
+            const container = document.getElementById('mcq-options-container');
+            container.innerHTML = '';
+
+            const feedbackEl = document.getElementById('mcq-feedback');
+            feedbackEl.className = 'hidden mt-4 p-3 rounded-xl text-xs font-semibold text-center';
+
+            qObj.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'mcq-option w-full text-left rounded-xl p-3.5 text-xs sm:text-sm text-slate-200 transition flex items-center space-x-2';
+                btn.innerHTML = `<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-white/10 border border-white/10 text-[10px] font-black text-sky-200 shadow-inner shadow-sky-400/20">${String.fromCharCode(65 + idx)}</span><span>${opt}</span>`;
+                btn.onclick = () => handleMCQAnswer(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function handleMCQAnswer(chosenIdx) {
+            const qObj = state.mcqData[state.mcqIndex];
+            const feedbackEl = document.getElementById('mcq-feedback');
+            const btns = document.querySelectorAll('#mcq-options-container button');
+            feedbackEl.classList.remove('hidden');
+
+            if (chosenIdx === qObj.correct) {
+                state.scores.mcq += 10;
+                playAnswerSound(true);
+                spawnParticles('#34d399');
+                triggerCorrectFeedback();
+                flashAnswerButton(btns[chosenIdx], true);
+                feedbackEl.classList.add('bg-emerald-500/20', 'text-emerald-300', 'border', 'border-emerald-500/40');
+                feedbackEl.innerText = `Jawaban Tepat! (+10 Poin) • Combo x${state.combo}`;
+                showToast(`Jawaban benar! +10 • Combo x${state.combo}`, 'success');
+            } else {
+                playAnswerSound(false);
+                spawnParticles('#f87171');
+                triggerWrongFeedback();
+                flashAnswerButton(btns[chosenIdx], false);
+                flashAnswerButton(btns[qObj.correct], true);
+                feedbackEl.classList.add('bg-rose-500/20', 'text-rose-300', 'border', 'border-rose-500/40');
+                feedbackEl.innerText = `Jawaban Kurang Tepat. Jawaban yang benar: ${qObj.options[qObj.correct]}`;
+                showToast('Jawaban salah', 'error');
+            }
+
+            document.getElementById('mcq-score-badge').innerText = `Skor MCQ: ${state.scores.mcq}/40`;
+            updateTotalScoreUI();
+
+            // Disable buttons temporarily
+            btns.forEach(b => b.disabled = true);
+
+            setTimeout(() => {
+                if (state.mcqIndex < state.mcqData.length - 1) {
+                    state.mcqIndex++;
+                    renderMCQ();
+                }
+            }, 1200);
+        }
+
+        // --- GAME 2: MATCHING LOGIC ---
+        function renderMatchingGame() {
+            const termsContainer = document.getElementById('match-terms-container');
+            const defsContainer = document.getElementById('match-defs-container');
+
+            termsContainer.innerHTML = '';
+            defsContainer.innerHTML = '';
+
+            // Shuffle defs
+            const shuffledDefs = [...state.matchingData].sort(() => Math.random() - 0.5);
+
+            state.matchingData.forEach(item => {
+                const tBtn = document.createElement('button');
+                tBtn.id = `term-${item.id}`;
+                tBtn.className = 'w-full text-left bg-slate-800 hover:bg-slate-750 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 font-semibold transition';
+                tBtn.innerText = item.term;
+                tBtn.setAttribute('aria-pressed', 'false');
+                tBtn.onclick = () => selectMatchTerm(item.id);
+                termsContainer.appendChild(tBtn);
+            });
+
+            shuffledDefs.forEach(item => {
+                const dBtn = document.createElement('button');
+                dBtn.id = `def-${item.id}`;
+                dBtn.className = 'w-full text-left bg-slate-800 hover:bg-slate-750 border border-slate-700 rounded-xl p-3 text-xs text-slate-300 transition';
+                dBtn.innerText = item.def;
+                dBtn.onclick = () => selectMatchDef(item.id);
+                defsContainer.appendChild(dBtn);
+            });
+        }
+
+        function selectMatchTerm(id) {
+            state.selectedMatchTerm = id;
+            state.matchingData.forEach(item => {
+                const el = document.getElementById(`term-${item.id}`);
+                if (el && !el.disabled) {
+                    if (item.id === id) {
+                        el.className = 'matching-selected w-full text-left bg-sky-600 border border-sky-400 rounded-xl p-3 text-xs text-white font-bold shadow-lg';
+                        el.setAttribute('aria-pressed', 'true');
+                    } else {
+                        el.className = 'w-full text-left bg-slate-800 hover:bg-slate-750 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 font-semibold transition';
+                        el.setAttribute('aria-pressed', 'false');
+                    }
+                }
+            });
+        }
+
+        function selectMatchDef(defId) {
+            if (!state.selectedMatchTerm) return;
+
+            const termEl = document.getElementById(`term-${state.selectedMatchTerm}`);
+            const defEl = document.getElementById(`def-${defId}`);
+
+            if (state.selectedMatchTerm === defId) {
+                // Match Success
+                state.scores.matching += 7.5;
+                playAnswerSound(true);
+                spawnParticles('#60a5fa');
+                triggerCorrectFeedback();
+                termEl.classList.add('option-correct');
+                defEl.classList.add('option-correct');
+                termEl.className = 'w-full text-left bg-emerald-950 border border-emerald-500/50 rounded-xl p-3 text-xs text-emerald-300 font-bold opacity-75 option-correct';
+                defEl.className = 'w-full text-left bg-emerald-950 border border-emerald-500/50 rounded-xl p-3 text-xs text-emerald-300 font-semibold opacity-75 option-correct';
+                termEl.disabled = true;
+                defEl.disabled = true;
+                state.matchingPairsCompleted++;
+                showToast(`Pasangan cocok! +7.5 • Combo x${state.combo}`, 'success');
+            } else {
+                // Match Failed animation
+                playAnswerSound(false);
+                spawnParticles('#fbbf24');
+                triggerWrongFeedback();
+                termEl.classList.add('option-wrong');
+                termEl.className = 'w-full text-left bg-rose-900 border border-rose-500 rounded-xl p-3 text-xs text-white font-bold animate-pulse option-wrong';
+                showToast('Coba lagi!', 'error');
+                setTimeout(() => {
+                    selectMatchTerm(null);
+                    termEl.classList.remove('option-wrong');
+                }, 500);
+            }
+
+            state.selectedMatchTerm = null;
+            document.getElementById('match-score-badge').innerText = `Skor: ${Math.round(state.scores.matching)}/30`;
+            updateTotalScoreUI();
+        }
+
+        // --- GAME 3: SORTING LOGIC ---
+        function renderSortingGame() {
+            if (state.sortIndex < state.sortItems.length) {
+                const current = state.sortItems[state.sortIndex];
+                document.getElementById('sort-item-name').innerText = `"${current.name}"`;
+            } else {
+                document.getElementById('sort-current-item-box').innerHTML = `
+                    <span class="text-xs text-emerald-400 font-bold block">Seluruh Item Telah Dikategorikan!</span>
+                `;
+            }
+        }
+
+        function submitSortCategory(catName) {
+            if (state.sortIndex >= state.sortItems.length) return;
+
+            const current = state.sortItems[state.sortIndex];
+            if (current.category === catName) {
+                state.scores.sorting += 5;
+                playAnswerSound(true);
+                spawnParticles('#22c55e');
+                triggerCorrectFeedback();
+                document.getElementById('sort-current-item-box').classList.add('option-correct');
+                showToast(`Benar! +5 • Combo x${state.combo}`, 'success');
+            } else {
+                playAnswerSound(false);
+                spawnParticles('#f97316');
+                triggerWrongFeedback();
+                document.getElementById('sort-current-item-box').classList.add('option-wrong');
+                showToast('Kategori salah', 'error');
+            }
+
+            setTimeout(() => {
+                document.getElementById('sort-current-item-box').classList.remove('option-correct', 'option-wrong');
+            }, 520);
+
+            state.sortIndex++;
+            document.getElementById('sort-score-badge').innerText = `Skor: ${state.scores.sorting}/30`;
+            updateTotalScoreUI();
+            renderSortingGame();
+        }
+
+        // --- GAME 4: TRUE/FALSE LOGIC ---
+        function renderTrueFalseGame() {
+            const qObj = state.trueFalseData[state.trueFalseIndex];
+            document.getElementById('tf-progress').innerText = `Soal ${state.trueFalseIndex + 1} dari ${state.trueFalseData.length}`;
+            document.getElementById('tf-question-text').innerText = qObj.q;
+
+            const container = document.getElementById('tf-options-container');
+            container.innerHTML = '';
+
+            const feedbackEl = document.getElementById('tf-feedback');
+            feedbackEl.className = 'hidden mt-4 p-3 rounded-xl text-xs font-semibold text-center';
+
+            const options = [
+                { label: 'Benar', value: true },
+                { label: 'Salah', value: false }
+            ];
+
+            options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'tf-option w-full rounded-xl p-3.5 text-sm text-slate-200 transition flex items-center justify-center gap-3 font-bold';
+                btn.innerHTML = `<span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 border border-white/10 text-sm font-black text-violet-200">${opt.label === 'Benar' ? 'B' : 'S'}</span><span>${opt.label}</span>`;
+                btn.onclick = () => handleTrueFalseAnswer(opt.value);
+                container.appendChild(btn);
+            });
+        }
+
+        function handleTrueFalseAnswer(chosenValue) {
+            const qObj = state.trueFalseData[state.trueFalseIndex];
+            const feedbackEl = document.getElementById('tf-feedback');
+            const btns = document.querySelectorAll('#tf-options-container button');
+            feedbackEl.classList.remove('hidden');
+
+            if (chosenValue === qObj.answer) {
+                state.scores.trueFalse += 5;
+                playAnswerSound(true);
+                spawnParticles('#8b5cf6');
+                triggerCorrectFeedback();
+                flashAnswerButton(btns[[true, false].indexOf(chosenValue)], true);
+                feedbackEl.classList.add('bg-emerald-500/20', 'text-emerald-300', 'border', 'border-emerald-500/40');
+                feedbackEl.innerText = `Benar! (+5 Poin) • Combo x${state.combo}`;
+                showToast(`Jawaban benar! +5 • Combo x${state.combo}`, 'success');
+            } else {
+                playAnswerSound(false);
+                spawnParticles('#f87171');
+                triggerWrongFeedback();
+                flashAnswerButton(btns[[true, false].indexOf(chosenValue)], false);
+                flashAnswerButton(btns[[true, false].indexOf(qObj.answer)], true);
+                feedbackEl.classList.add('bg-rose-500/20', 'text-rose-300', 'border', 'border-rose-500/40');
+                feedbackEl.innerText = `Jawaban salah. Pernyataan yang benar: ${qObj.answer ? 'Benar' : 'Salah'}`;
+                showToast('Jawaban salah', 'error');
+            }
+
+            document.getElementById('tf-score-badge').innerText = `Skor Benar/Salah: ${state.scores.trueFalse}/20`;
+            updateTotalScoreUI();
+            btns.forEach(b => b.disabled = true);
+
+            setTimeout(() => {
+                if (state.trueFalseIndex < state.trueFalseData.length - 1) {
+                    state.trueFalseIndex++;
+                    renderTrueFalseGame();
+                }
+            }, 1200);
+        }
+
+        function flashAnswerButton(button, isCorrect) {
+            if (!button) return;
+            button.classList.remove('option-correct', 'option-wrong');
+            button.classList.add(isCorrect ? 'option-correct' : 'option-wrong');
+            setTimeout(() => {
+                button.classList.remove('option-correct', 'option-wrong');
+            }, 700);
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast show ${type}`;
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => {
+                toast.className = 'toast';
+            }, 1400);
+        }
+
+        function spawnParticles(color = '#38bdf8') {
+            const layer = document.getElementById('particle-layer');
+            for (let i = 0; i < 14; i++) {
+                const particle = document.createElement('span');
+                particle.className = 'particle';
+                particle.style.background = color;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.setProperty('--dx', `${(Math.random() - 0.5) * 150}px`);
+                particle.style.setProperty('--dy', `${-40 - Math.random() * 80}px`);
+                layer.appendChild(particle);
+                setTimeout(() => particle.remove(), 900);
+            }
+        }
+
+        function updateComboAndLevel() {
+            const total = Math.round(state.scores.mcq + state.scores.matching + state.scores.sorting + state.scores.trueFalse);
+            state.combo = Math.max(1, Math.min(5, 1 + Math.floor(state.streak / 2)));
+            state.level = 1 + Math.floor(total / 20);
+            document.getElementById('combo-badge').textContent = `x${state.combo}`;
+            document.getElementById('level-badge').textContent = state.level;
+            const progress = Math.min(100, (total / 120) * 100);
+            document.getElementById('game-progress-fill').style.width = `${progress}%`;
+        }
+
+        function triggerCorrectFeedback() {
+            state.streak += 1;
+            state.bestStreak = Math.max(state.bestStreak, state.streak);
+            updateComboAndLevel();
+        }
+
+        function triggerWrongFeedback() {
+            state.streak = 0;
+            updateComboAndLevel();
+        }
+
+        function updateTotalScoreUI() {
+            const total = Math.round(state.scores.mcq + state.scores.matching + state.scores.sorting + state.scores.trueFalse);
+            document.getElementById('live-total-score').innerText = `${total} / 120`;
+            updateComboAndLevel();
+        }
+
+        // CERTIFICATE GENERATOR & PRINT
+        function finishGameAndGenerateCert() {
+            const totalScore = Math.round(state.scores.mcq + state.scores.matching + state.scores.sorting + state.scores.trueFalse);
+
+            document.getElementById('cert-student-name').innerText = state.student.name || "Peserta Didik Geografi";
+            document.getElementById('cert-student-details').innerHTML = `
+                Kelas: <span class="font-bold text-white">${state.student.class || 'X'}</span> | 
+                Sekolah: <span class="font-bold text-white">${state.student.school || 'SMA Negeri'}</span>
+            `;
+            document.getElementById('cert-final-score').innerText = totalScore;
+
+            // Predicate Logic
+            let pred = "Sangat Baik";
+            let colorClass = "text-emerald-400";
+            if (totalScore < 60) {
+                pred = "Cukup (Perlu Belajar Lagi)";
+                colorClass = "text-rose-400";
+            } else if (totalScore < 80) {
+                pred = "Baik";
+                colorClass = "text-sky-400";
+            }
+            const predEl = document.getElementById('cert-predicate');
+            predEl.innerText = `Predikat: ${pred}`;
+            predEl.className = `text-xs font-semibold ${colorClass} mt-1`;
+
+            // Current Date
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('cert-date').innerText = today.toLocaleDateString('id-ID', options);
+
+            navToSlide(6);
+            document.getElementById('background-music').pause();
+            playEndGameSound();
+            playSound(totalScore >= 70 ? 'win' : 'success');
+
+            // Confetti effect if score >= 70
+            if (totalScore >= 70 && typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        function printCertificate() {
+            window.print();
+        }
+
+        /* INITIALIZATION ON LOAD */
+        window.onload = function() {
+            showSlide(1);
+            renderMCQ();
+            renderMatchingGame();
+            renderSortingGame();
+            renderTrueFalseGame();
+            updateComboAndLevel();
+            showToast('Game siap dimainkan!', 'info');
+        };
+    </script>
+</body>
+</html>
